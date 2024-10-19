@@ -3,10 +3,12 @@ const operators = ['+', '-', '/', '*']
 let firstNumber = []
 let secondNumber = []
 let chosenOperator = []
+let result = []
+//replace the below with some  statement linked to buttons
 chosenOperator.push(operators[2])
 firstNumber.push(numbers[1],[0],[0])
 secondNumber.push(numbers[6])
-let result = []
+
 
 function addNumbers(a, b) {
     return a + b;
@@ -40,9 +42,12 @@ function operate(a, b, operator){
             result.push(multiplyNumbers(a, b));
             return result;
     }
-
 }
 
-console.log(operate(Number(firstNumber.join('')),
-                    Number(secondNumber.join('')), 
+function cleanInput(numberArr) {
+    let clean = Number(numberArr.join(''));
+    return clean;
+}
+console.log(operate(cleanInput(firstNumber),
+                    cleanInput(secondNumber), 
                     chosenOperator.join('')))
