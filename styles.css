@@ -1,0 +1,62 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 10%;
+}
+
+#displayContainer {
+    font-size: 80px;
+    text-align: right;
+    border: 1px solid black;
+    width: 505px;
+    margin-left: 8px;
+    min-height: 95px;
+
+
+}
+
+#buttonContainer {
+    display: flex;
+}
+
+#numberContainer{
+    display: flex;
+    max-width: 390px;
+    min-width: 390px;
+    height: 500px;
+    justify-content: center;
+    flex-wrap: wrap;
+ 
+}
+
+button {
+    font-size: 80px;
+    height: 120px;
+    width: 125px;
+    padding: 1px;
+    margin: 1px;
+}
+
+.zero {
+    min-width: 380px;
+
+}
+
+#clear {
+    min-width: 250px;
+    margin-right: 130px;
+}
+
+#operatorContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#rightButtonContainer {
+    display: flex;
+    flex-direction: column;
+}

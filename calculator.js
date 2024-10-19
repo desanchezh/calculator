@@ -53,7 +53,14 @@ function getDisplayNum(arr) {
 
 let btnNum = document.querySelector('#numberContainer');
 btnNum.addEventListener('click',function (e) {
-    if (chosenOperator.length == 0) {
+    if (e.target.id == 'clear') {
+        firstNumber.length = 0;
+        secondNumber.length = 0;
+        chosenOperator.length = 0;
+        result.length = 0;
+        numberPressed.length = 0;
+        displayContainer.textContent = ''
+    }else if (chosenOperator.length == 0) {
         result.length = 0
         numberPressed.length = 0;
         numberPressed.push(e.target.id);
@@ -73,7 +80,7 @@ btnNum.addEventListener('click',function (e) {
 let btnOperator = document.querySelector('#operatorContainer');
 btnOperator.addEventListener('click', function (e) {
     if (result.length == 0){
-        displayContainer.textContent = '';
+        displayContainer.textContent = ''
         chosenOperator.length = 0;
         chosenOperator.push(e.target.id)
         //add some effect here to show current selection (pressed down in css?)
@@ -85,7 +92,7 @@ btnOperator.addEventListener('click', function (e) {
 
 let btnSpecial = document.querySelector('#specialContainer');
 btnSpecial.addEventListener('click',function (e) {
-   //don't try to divide by zero
+    //don't try to divide by zero
     if (e.target.id == '=' && cleanArray(secondNumber) == 0 && chosenOperator.join('') == '/') {
         displayContainer.textContent = 'get a grip';
         firstNumber.length = 0;
@@ -102,16 +109,9 @@ btnSpecial.addEventListener('click',function (e) {
         secondNumber.length = 0
     }else if (e.target.id == '=') { 
             operate(cleanArray(firstNumber), cleanArray(secondNumber), chosenOperator.join(''))
-            displayContainer.textContent = '';
+            displayContainer.textContent = ''
             getDisplayNum(result);
             chosenOperator.length = 0
             firstNumber.length = 0
             secondNumber.length = 0
-        }else if (e.target.id == 'clear') {
-            firstNumber.length = 0;
-            secondNumber.length = 0;
-            chosenOperator.length = 0;
-            result.length = 0;
-            numberPressed.length = 0;
-            displayContainer.textContent = ''
-        }})
+    }})
