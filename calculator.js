@@ -4,7 +4,7 @@ let firstNumber = []
 let secondNumber = []
 let chosenOperator = []
 let result = []
-let displayValue = []
+
 //replace the below with some  statement linked to buttons
 chosenOperator.push(operators[2])
 firstNumber.push(numbers[1],[0],[0])
@@ -53,13 +53,17 @@ function cleanArray(numberArr) {
 console.log(operate(cleanArray(firstNumber),cleanArray(secondNumber),chosenOperator.join('')));
 
 function getDisplayNum(arr) {
-    let displayContainer = document.querySelector("#displayContainer");
-    let displayNum = document.createElement("span");
+    let displayContainer = document.querySelector('#displayContainer');
+    let displayNum = document.createElement('span');
     displayContainer.appendChild(displayNum);
     displayNum.textContent = cleanArray(arr);
 }
 
-getDisplayNum(firstNumber);
+getDisplayNum(numbers);
 
+let buttonNodeList= document.querySelectorAll('button');
 
-
+const btn = document.querySelector("#buttonContainer");
+btn.addEventListener("click",function (e) {
+    console.log(e.target.id);
+})
