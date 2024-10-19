@@ -42,7 +42,7 @@ body {
 }
 
 .pushable {
-    background: hsl(340deg 100% 32%);
+    background: hsl(340, 100%, 28%);
     border-radius: 12px;
     border: none;
     padding: 0;
@@ -59,7 +59,7 @@ body {
     padding: 12px;
     border-radius: 12px;
     font-size: 80px;
-    background: hsl(345deg 100% 47%);
+    background: hsl(345, 100%, 42%);
     color: white;
     transform: translateY(-6px);
     height: 90px;
