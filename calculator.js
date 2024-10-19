@@ -1,3 +1,5 @@
+//improvement ideas...change operator buttons so they remain visually pressed until = is pressed, delete button, keyboard input
+
 let firstNumber = [];
 let secondNumber = [];
 let chosenOperator = [];
@@ -96,6 +98,7 @@ btnSpecial.addEventListener('click',function (e) {
     //don't try to divide by zero
     if (e.target.id == '=' && cleanArray(secondNumber) == 0 && chosenOperator.join('') == '/') {
         displayContainer.textContent = 'get a grip';
+        displayContainer.style.color = 'white';
         firstNumber.length = 0;
         secondNumber.length = 0;
         chosenOperator.length = 0;
