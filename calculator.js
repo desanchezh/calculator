@@ -4,11 +4,9 @@ let firstNumber = []
 let secondNumber = []
 let chosenOperator = []
 let result = []
+let numberPressed = []
 
 //replace the below with some  statement linked to buttons
-chosenOperator.push(operators[2])
-firstNumber.push(numbers[1],[0],[0])
-secondNumber.push(numbers[6])
 
 
 function addNumbers(a, b) {
@@ -50,7 +48,6 @@ function cleanArray(numberArr) {
     let clean = Number(numberArr.join(''));
     return clean;
 }
-console.log(operate(cleanArray(firstNumber),cleanArray(secondNumber),chosenOperator.join('')));
 
 function getDisplayNum(arr) {
     let displayContainer = document.querySelector('#displayContainer');
@@ -61,9 +58,19 @@ function getDisplayNum(arr) {
 
 getDisplayNum(numbers);
 
-let buttonNodeList= document.querySelectorAll('button');
 
-const btn = document.querySelector("#buttonContainer");
-btn.addEventListener("click",function (e) {
-    console.log(e.target.id);
+let btnNum = document.querySelector('#numberContainer');
+btnNum.addEventListener('click',function (e) {
+    numberPressed.length = 0;
+    numberPressed.push(e.target.id);
+    firstNumber.push(cleanArray(numberPressed));
+    console.log(firstNumber.join(''));
 })
+
+let btnOperator = document.querySelector('#operatorContainer');
+btnOperator.addEventListener('click',function (e) {
+    if (e.target.id == '=') { return console.log('calc =')}
+    else{
+        chosenOperator.length = 0;
+        chosenOperator.push(e.target.id);
+}})
