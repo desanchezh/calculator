@@ -1,4 +1,4 @@
-//improvement ideas...change operator buttons so they remain visually pressed until = is pressed, delete button, keyboard input
+//improvement ideas...STOP SCROLL, change operator buttons so they remain visually pressed until = is pressed, delete button, keyboard input
 
 let firstNumber = [];
 let secondNumber = [];
