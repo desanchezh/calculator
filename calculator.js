@@ -23,6 +23,7 @@ function multiplyNumbers(a, b) {
     return a * b
 }
 
+//decide which function to use and  push result to array
 function operate(a, b, operator){
     result.length = 0
     switch(operator){
@@ -41,11 +42,13 @@ function operate(a, b, operator){
     }
 }
 
+//format array for calc
 function cleanArray(numberArr) {
     let clean = Number(numberArr.join(''));
     return clean;
 }
 
+//shows array as string in calculator display
 function getDisplayNum(arr) {
     let displayNum = document.createElement('span');
     displayContainer.appendChild(displayNum);
@@ -53,17 +56,16 @@ function getDisplayNum(arr) {
     displayNum.style.color = "white"
 }
 
-
 let btnNum = document.querySelector('#numberContainer');
 btnNum.addEventListener('click',function (e) {
-    if (e.target.id == 'clear') {
+    if (e.target.id == 'clear') {//checks for clear
         firstNumber.length = 0;
         secondNumber.length = 0;
         chosenOperator.length = 0;
         result.length = 0;
         numberPressed.length = 0;
         displayContainer.textContent = ''
-    }else if (chosenOperator.length == 0) {
+    }else if (chosenOperator.length == 0) {//checks if operator is already selected
         result.length = 0
         numberPressed.length = 0;
         numberPressed.push(e.target.id);
@@ -71,7 +73,7 @@ btnNum.addEventListener('click',function (e) {
         displayContainer.textContent = ''
         getDisplayNum(firstNumber);
     }
-    else if (chosenOperator.Length != 0){
+    else if (chosenOperator.Length != 0){ //operator not selected yet
         numberPressed.length = 0;
         numberPressed.push(e.target.id);
         secondNumber.push(cleanArray(numberPressed));
@@ -80,9 +82,11 @@ btnNum.addEventListener('click',function (e) {
     }
 })
 
+
+
 let btnOperator = document.querySelector('#operatorContainer');
 btnOperator.addEventListener('click', function (e) {
-    if (result.length == 0){
+    if (result.length == 0){ //operator not  selected yet
         displayContainer.textContent = ''
         chosenOperator.length = 0;
         chosenOperator.push(e.target.id)
@@ -92,6 +96,7 @@ btnOperator.addEventListener('click', function (e) {
         chosenOperator.push(e.target.id)
     }
 })
+
 
 let btnSpecial = document.querySelector('#specialContainer');
 btnSpecial.addEventListener('click',function (e) {
@@ -103,8 +108,9 @@ btnSpecial.addEventListener('click',function (e) {
         secondNumber.length = 0;
         chosenOperator.length = 0;
         result.length = 0;
+
     }
-    else if (e.target.id == '=' && result.length != 0) { 
+    else if (e.target.id == '=' && result.length != 0) { //check if result is stored  and sets as first num if so
         operate(cleanArray(result), cleanArray(secondNumber), chosenOperator.join(''))
         displayContainer.textContent = '';
         getDisplayNum(result);
@@ -112,7 +118,7 @@ btnSpecial.addEventListener('click',function (e) {
         firstNumber.length = 0
         secondNumber.length = 0
     }else if (e.target.id == '=') { 
-            operate(cleanArray(firstNumber), cleanArray(secondNumber), chosenOperator.join(''))
+            operate(cleanArray(firstNumber), cleanArray(secondNumber), chosenOperator.join(''))//standard calculation
             displayContainer.textContent = ''
             getDisplayNum(result);
             chosenOperator.length = 0
