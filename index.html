@@ -9,31 +9,40 @@
 <body>
 
     <div id="calcContainer">
-        <div id="displayContainer">0000000</div>
+        <div id="displayContainer"></div>
         <div id="buttonContainer">
             <div id="numberContainer">
-                <button id="clear">AC</button>
-                <button id="1">1</button>
-                <button id="2">2</button>
-                <button id="3">3</button>
-                <button id="4">4</button>
-                <button id="5">5</button>
-                <button id="6">6</button>
-                <button id="7">7</button>
-                <button id="8">8</button>
-                <button id="9">9</button>
-                <button class="zero" id="0">0</button>
+                <button class="pushable" id="clearBack">
+                    <span class="front" id="clear">
+                        AC
+                    </span>
+                </button>
+                <button class="pushable" id="1">
+                    <span class="front" id="1">
+                        1
+                    </span>
+                </button>
+                <button class="pushable" id="2"><span class="front"id="2">2</span></button>
+                <button class="pushable" id="3"><span class="front" id="3">3</span></button>
+                <button class="pushable" id="4"><span class="front" id="4">4</span></button>
+                <button class="pushable" id="5"><span class="front" id="5">5</span></button>
+                <button class="pushable" id="6"><span class="front" id="6">6</span></button>
+                <button class="pushable" id="7"><span class="front" id="7">7</span></button>
+                <button class="pushable" id="8"><span class="front" id="8">8</span></button>
+                <button class="pushable" id="9"><span class="front" id="9">9</span></button>
+                <button class="pushable" id="0Back"><span class="front" id="0">0</span></button>
                 
             </div>
             <div id="rightButtonContainer">
                 <div id="operatorContainer">
-                    <button id="/">÷</button>
-                    <button id="*">x</button>
-                    <button id="+">+</button>
-                    <button id="-">-</button>
+                    <button class="pushable" id="/"><span class="front" id="/">÷</span></button>
+                    <button class="pushable" id="*"><span class="front" id="*">x</span></button>
+                    <button class="pushable" id="+"><span class="front" id="+">+</span></button>
+                    <button class="pushable" id="-"><span class="front" id="-">-</span></button>
                 </div>
                 <div id="specialContainer">
-                    <button id="=">=</button>
+                    <button class="pushable" id="=">
+                        <span class="front" id="=">=</span></button>
                 </div>
             </div>
         </div>

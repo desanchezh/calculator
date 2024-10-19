@@ -15,6 +15,7 @@ body {
     width: 505px;
     margin-left: 8px;
     min-height: 95px;
+    margin-bottom: 5px;
 
 
 }
@@ -33,23 +34,55 @@ body {
  
 }
 
-button {
+.pushable {
+    background: hsl(340deg 100% 32%);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
     font-size: 80px;
     height: 120px;
     width: 125px;
-    padding: 1px;
     margin: 1px;
 }
 
-.zero {
-    min-width: 380px;
+.front {
+    display: block;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 80px;
+    background: hsl(345deg 100% 47%);
+    color: white;
+    transform: translateY(-6px);
+    height: 90px;
+}
 
+.pushable:active .front {
+    transform: translateY(-2px);
+  }
+
+[id='0'] {
+    min-width: 200px;
+}
+
+[id='0Back']{
+    margin-right: 155px;
+    min-width: 224px;
+}
+
+
+#clearBack {
+    margin-right: 155px;
+    width: 224px;
 }
 
 #clear {
-    min-width: 250px;
-    margin-right: 130px;
+    width: 200px;
+
+
 }
+
 
 #operatorContainer {
     display: flex;
