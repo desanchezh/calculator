@@ -48,6 +48,7 @@ function getDisplayNum(arr) {
     let displayNum = document.createElement('span');
     displayContainer.appendChild(displayNum);
     displayNum.textContent = +cleanArray(arr).toFixed(2);
+    displayNum.style.color = "white"
 }
 
 

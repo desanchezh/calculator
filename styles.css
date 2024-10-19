@@ -1,22 +1,29 @@
+html{
+}
+
 body {
+    
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
-    padding: 10%;
+    align-items: center;
+    height: 80vh;
+    width: 120vh;
+    background: rgb(140, 132, 132);
+}
+
+#calcContainer {
+    background: rgb(163, 0, 54, 0.2);
+    border-radius: 12px;
+    padding: 10px;
 }
 
 #displayContainer {
     font-size: 80px;
     text-align: right;
-    border: 1px solid black;
-    width: 505px;
-    margin-left: 8px;
     min-height: 95px;
     margin-bottom: 5px;
-
+    background: rgb(163, 0, 54, 0.1);
 
 }
 
@@ -83,7 +90,6 @@ body {
 
 }
 
-
 #operatorContainer {
     display: flex;
     flex-direction: column;
@@ -92,4 +98,12 @@ body {
 #rightButtonContainer {
     display: flex;
     flex-direction: column;
+}
+
+#numberContainer button {
+    background: rgb(42, 0, 14);
+}
+
+#numberContainer span {
+    background: rgb(94, 0, 23);
 }
