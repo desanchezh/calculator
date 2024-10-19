@@ -47,7 +47,7 @@ function cleanArray(numberArr) {
 function getDisplayNum(arr) {
     let displayNum = document.createElement('span');
     displayContainer.appendChild(displayNum);
-    displayNum.textContent = cleanArray(arr);
+    displayNum.textContent = +cleanArray(arr).toFixed(2);
 }
 
 
@@ -85,6 +85,7 @@ btnOperator.addEventListener('click', function (e) {
 
 let btnSpecial = document.querySelector('#specialContainer');
 btnSpecial.addEventListener('click',function (e) {
+   //don't try to divide by zero
     if (e.target.id == '=' && cleanArray(secondNumber) == 0 && chosenOperator.join('') == '/') {
         displayContainer.textContent = 'get a grip';
         firstNumber.length = 0;
