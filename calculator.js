@@ -5,6 +5,7 @@ let secondNumber = []
 let chosenOperator = []
 let result = []
 let numberPressed = []
+let displayContainer = document.querySelector('#displayContainer');
 
 //replace the below with some  statement linked to buttons
 
@@ -50,7 +51,6 @@ function cleanArray(numberArr) {
 }
 
 function getDisplayNum(arr) {
-    let displayContainer = document.querySelector('#displayContainer');
     let displayNum = document.createElement('span');
     displayContainer.appendChild(displayNum);
     displayNum.textContent = cleanArray(arr);
@@ -58,19 +58,47 @@ function getDisplayNum(arr) {
 
 getDisplayNum(numbers);
 
-
 let btnNum = document.querySelector('#numberContainer');
 btnNum.addEventListener('click',function (e) {
-    numberPressed.length = 0;
-    numberPressed.push(e.target.id);
-    firstNumber.push(cleanArray(numberPressed));
-    console.log(firstNumber.join(''));
+    if (chosenOperator.length == 0) {
+        numberPressed.length = 0;
+        numberPressed.push(e.target.id);
+        firstNumber.push(cleanArray(numberPressed));
+        displayContainer.textContent = ''
+        getDisplayNum(firstNumber);
+    }
+    else if (chosenOperator.Length != 0){
+        numberPressed.length = 0;
+        numberPressed.push(e.target.id);
+        secondNumber.push(cleanArray(numberPressed));
+        displayContainer.textContent = ''
+        getDisplayNum(secondNumber);
+        console.log('second ' + secondNumber) 
+    }
 })
 
 let btnOperator = document.querySelector('#operatorContainer');
-btnOperator.addEventListener('click',function (e) {
-    if (e.target.id == '=') { return console.log('calc =')}
-    else{
+btnOperator.addEventListener('click', function (e) {
+    displayContainer.textContent = '';
+    chosenOperator.length = 0;
+    chosenOperator.push(e.target.id)
+    console.log(chosenOperator.join(''))
+    //add some effect here to show current selection (pressed down in css?)
+})
+
+let btnSpecial = document.querySelector('#specialContainer');
+btnSpecial.addEventListener('click',function (e) {
+    if (e.target.id == '=') { 
+        operate(cleanArray(firstNumber), cleanArray(secondNumber), chosenOperator.join(''))
+        displayContainer.textContent = '';
+        getDisplayNum(result);
+        return console.log(result)}
+
+    else if (e.target.id == 'clear'){
+        firstNumber.length = 0;
+        secondNumber.length = 0;
         chosenOperator.length = 0;
-        chosenOperator.push(e.target.id);
-}})
+        result.length = 0;
+        numberPressed.length = 0;
+        displayContainer.textContent = ''
+    }})
