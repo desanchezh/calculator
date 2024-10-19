@@ -1,14 +1,9 @@
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]
-const operators = ['+', '-', '/', '*']
-let firstNumber = []
-let secondNumber = []
-let chosenOperator = []
-let result = []
+let firstNumber = [];
+let secondNumber = [];
+let chosenOperator = [];
+let result = [];
 let numberPressed = []
 let displayContainer = document.querySelector('#displayContainer');
-
-//replace the below with some  statement linked to buttons
-
 
 function addNumbers(a, b) {
     return a + b;
@@ -19,8 +14,7 @@ function subtractNumbers(a, b) {
 }
 
 function divideNumbers(a, b) {
-    if (b == 0) {return "get a grip."}
-    else{return a / b}
+    return a / b
 }
 
 function multiplyNumbers(a, b) {
@@ -56,11 +50,11 @@ function getDisplayNum(arr) {
     displayNum.textContent = cleanArray(arr);
 }
 
-getDisplayNum(numbers);
 
 let btnNum = document.querySelector('#numberContainer');
 btnNum.addEventListener('click',function (e) {
     if (chosenOperator.length == 0) {
+        result.length = 0
         numberPressed.length = 0;
         numberPressed.push(e.target.id);
         firstNumber.push(cleanArray(numberPressed));
@@ -73,32 +67,50 @@ btnNum.addEventListener('click',function (e) {
         secondNumber.push(cleanArray(numberPressed));
         displayContainer.textContent = ''
         getDisplayNum(secondNumber);
-        console.log('second ' + secondNumber) 
     }
 })
 
 let btnOperator = document.querySelector('#operatorContainer');
 btnOperator.addEventListener('click', function (e) {
-    displayContainer.textContent = '';
-    chosenOperator.length = 0;
-    chosenOperator.push(e.target.id)
-    console.log(chosenOperator.join(''))
-    //add some effect here to show current selection (pressed down in css?)
+    if (result.length == 0){
+        displayContainer.textContent = '';
+        chosenOperator.length = 0;
+        chosenOperator.push(e.target.id)
+        //add some effect here to show current selection (pressed down in css?)
+    }else if (result.length != 0) {
+        chosenOperator.length = 0;
+        chosenOperator.push(e.target.id)
+    }
 })
 
 let btnSpecial = document.querySelector('#specialContainer');
 btnSpecial.addEventListener('click',function (e) {
-    if (e.target.id == '=') { 
-        operate(cleanArray(firstNumber), cleanArray(secondNumber), chosenOperator.join(''))
-        displayContainer.textContent = '';
-        getDisplayNum(result);
-        return console.log(result)}
-
-    else if (e.target.id == 'clear'){
+    if (e.target.id == '=' && cleanArray(secondNumber) == 0 && chosenOperator.join('') == '/') {
+        displayContainer.textContent = 'get a grip';
         firstNumber.length = 0;
         secondNumber.length = 0;
         chosenOperator.length = 0;
         result.length = 0;
-        numberPressed.length = 0;
-        displayContainer.textContent = ''
-    }})
+    }
+    else if (e.target.id == '=' && result.length != 0) { 
+        operate(cleanArray(result), cleanArray(secondNumber), chosenOperator.join(''))
+        displayContainer.textContent = '';
+        getDisplayNum(result);
+        chosenOperator.length = 0
+        firstNumber.length = 0
+        secondNumber.length = 0
+    }else if (e.target.id == '=') { 
+            operate(cleanArray(firstNumber), cleanArray(secondNumber), chosenOperator.join(''))
+            displayContainer.textContent = '';
+            getDisplayNum(result);
+            chosenOperator.length = 0
+            firstNumber.length = 0
+            secondNumber.length = 0
+        }else if (e.target.id == 'clear') {
+            firstNumber.length = 0;
+            secondNumber.length = 0;
+            chosenOperator.length = 0;
+            result.length = 0;
+            numberPressed.length = 0;
+            displayContainer.textContent = ''
+        }})
