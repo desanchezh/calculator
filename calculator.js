@@ -4,6 +4,7 @@ let firstNumber = []
 let secondNumber = []
 let chosenOperator = []
 let result = []
+let displayValue = []
 //replace the below with some  statement linked to buttons
 chosenOperator.push(operators[2])
 firstNumber.push(numbers[1],[0],[0])
@@ -19,7 +20,8 @@ function subtractNumbers(a, b) {
 }
 
 function divideNumbers(a, b) {
-    return a / b;
+    if (b == 0) {return "get a grip."}
+    else{return a / b}
 }
 
 function multiplyNumbers(a, b) {
@@ -44,10 +46,20 @@ function operate(a, b, operator){
     }
 }
 
-function cleanInput(numberArr) {
+function cleanArray(numberArr) {
     let clean = Number(numberArr.join(''));
     return clean;
 }
-console.log(operate(cleanInput(firstNumber),
-                    cleanInput(secondNumber), 
-                    chosenOperator.join('')))
+console.log(operate(cleanArray(firstNumber),cleanArray(secondNumber),chosenOperator.join('')));
+
+function getDisplayNum(arr) {
+    let displayContainer = document.querySelector("#displayContainer");
+    let displayNum = document.createElement("span");
+    displayContainer.appendChild(displayNum);
+    displayNum.textContent = cleanArray(arr);
+}
+
+getDisplayNum(firstNumber);
+
+
+
