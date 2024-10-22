@@ -58,7 +58,7 @@ body {
       600ms
       cubic-bezier(.3, .7, .4, 1);
     display: block;
-    padding: 12px;
+    padding: 10px;
     border-radius: 12px;
     font-size: 80px;
     background: hsl(345, 100%, 42%);
