@@ -58,11 +58,16 @@ function removeOperatorTransform() {
 //shows array as string in calculator display
 function getDisplayNum(arr) {
     let displayNum = document.createElement('span');
-    displayContainer.appendChild(displayNum);
-    displayNum.textContent = +cleanArray(arr).toFixed(2);
-    displayNum.style.background = ''
-    displayNum.style.color = 'white'
-}
+    if (!isNaN(cleanArray(arr))) { 
+      //^to prevent NaN from printing becuase #buttonContainer is clickable
+      displayContainer.appendChild(displayNum);
+      displayNum.style.background = ''
+      displayNum.style.color = 'white'
+      displayNum.textContent = +cleanArray(arr).toFixed(2); // + here means decimals are used if needed
+    }
+    
+  }
+
 
 let btnNum = document.querySelector('#numberContainer');
 btnNum.addEventListener('click',function (e) {
