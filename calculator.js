@@ -1,4 +1,4 @@
-//improvement ideas... delete button
+//improvement ideas... delete button, negative button, decimal button
 
 let firstNumber = [];
 let secondNumber = [];
@@ -55,17 +55,14 @@ function removeOperatorTransform() {
   }
 }
 
-//shows array as string in calculator display
 function getDisplayNum(arr) {
     let displayNum = document.createElement('span');
-    if (!isNaN(cleanArray(arr))) { 
-      //^to prevent NaN from printing becuase #buttonContainer is clickable
       displayContainer.appendChild(displayNum);
       displayNum.style.background = ''
       displayNum.style.color = 'white'
       displayNum.textContent = +cleanArray(arr).toFixed(2); // + here means decimals are used if needed
     }
-  }
+  
 
 //number buttons
 let btnNum = document.querySelector('#numberContainer');
@@ -79,23 +76,27 @@ btnNum.addEventListener('click',function (e) {
         displayContainer.textContent = ''
         document.querySelector('button').style.transform = null
         removeOperatorTransform();
-
-    }else if (chosenOperator.length == 0) {//checks if operator is already selected
+    }else if (e.target.id == 'sign'){
+      displayContainer.textContent = ''
+      flipSign();
+    }
+    else if (chosenOperator.length == 0) {//checks if operator is already selected
         result.length = 0
         numberPressed.length = 0;
         numberPressed.push(e.target.id);
         firstNumber.push(cleanArray(numberPressed));
+        console.log(firstNumber)
         displayContainer.textContent = ''
         getDisplayNum(firstNumber);
     }
-    else if (chosenOperator.Length != 0){ 
+    else if (chosenOperator.length != 0){ 
         numberPressed.length = 0;
         numberPressed.push(e.target.id);
         secondNumber.push(cleanArray(numberPressed));
         displayContainer.textContent = ''
         getDisplayNum(secondNumber);
     }
-})
+  })
 
 //operator buttons
 let btnOperator = document.querySelector('#operatorContainer');
@@ -146,7 +147,6 @@ btnSpecial.addEventListener('click',function (e) {
 
 
 addEventListener('keydown', (event) => {
-  console.log(event.key)
   for (let i = 0; i < 10; i++){
   if (event.key == i){
     document.getElementById(`${i}`).click()
@@ -164,3 +164,19 @@ addEventListener('keydown', (event) => {
   }else if (event.key == 'Enter') {
     document.getElementById("=").click()
 }})
+
+function flipSign() {
+  console.log('flipSign worked')
+    if (result.length == 0 && chosenOperator.length == 0) {
+      firstNumber[0] *= -1;
+      getDisplayNum(firstNumber)
+  } else if (result.length == 0 && chosenOperator.length != 0) {
+    secondNumber[0] *= -1;
+    getDisplayNum(secondNumber)
+  } else if (result.length != 0 && chosenOperator.length != 0) {
+    secondNumber[0] *= -1;
+    getDisplayNum(secondNumber)
+  } else if (result.length != 0) {
+    result[0] *= -1;
+    getDisplayNum(result)
+  }}
