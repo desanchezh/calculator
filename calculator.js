@@ -1,4 +1,4 @@
-//improvement ideas... change operator buttons so they remain visually pressed until = is pressed, delete button, keyboard input
+//improvement ideas... delete button
 
 let firstNumber = [];
 let secondNumber = [];
@@ -65,10 +65,9 @@ function getDisplayNum(arr) {
       displayNum.style.color = 'white'
       displayNum.textContent = +cleanArray(arr).toFixed(2); // + here means decimals are used if needed
     }
-    
   }
 
-
+//number buttons
 let btnNum = document.querySelector('#numberContainer');
 btnNum.addEventListener('click',function (e) {
     if (e.target.id == 'clear') {
@@ -98,19 +97,16 @@ btnNum.addEventListener('click',function (e) {
     }
 })
 
-
+//operator buttons
 let btnOperator = document.querySelector('#operatorContainer');
 btnOperator.addEventListener('click', function (e) {
   removeOperatorTransform();
-  console.log(currentOperatorGlobal)
-    if (result.length == 0){ //operator not  selected yet
         chosenOperator.length = 0;
         selection = e.target.textContent
+        console.log(selection)
         chosenOperator.push(selection)
-    }else if (result.length != 0) {
-        chosenOperator.length = 0;
-        chosenOperator.push(selection)
-    }
+    
+//keeps button pressed
   let currentOperator = document.querySelector(`#${e.target.id}`);
   currentOperator.style.transform = "translateY(-2px)";
   currentOperator.style.background = "#B0002C"
@@ -118,7 +114,7 @@ btnOperator.addEventListener('click', function (e) {
   
 })
 
-
+// "=" button
 let btnSpecial = document.querySelector('#specialContainer');
 btnSpecial.addEventListener('click',function (e) {
     //don't try to divide by zero
@@ -147,3 +143,24 @@ btnSpecial.addEventListener('click',function (e) {
             firstNumber.length = 0
             secondNumber.length = 0
     }})
+
+
+addEventListener('keydown', (event) => {
+  console.log(event.key)
+  for (let i = 0; i < 10; i++){
+  if (event.key == i){
+    document.getElementById(`${i}`).click()
+  }}
+  if (event.key == 'Backspace') {
+    document.getElementById("clear").click()
+  }else if (event.key == '/') {
+    document.getElementById("divide").click()
+  }else if (event.key == '*') {
+    document.getElementById("multiply").click()
+  }else if (event.key == '+') {
+    document.getElementById("add").click()
+  }else if (event.key == '-') {
+    document.getElementById("subtract").click()
+  }else if (event.key == 'Enter') {
+    document.getElementById("=").click()
+}})
