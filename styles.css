@@ -50,6 +50,7 @@ body {
     height: 120px;
     width: 125px;
     margin: 1px;
+    line-height: none
 }
 
 .front {
