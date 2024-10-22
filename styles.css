@@ -15,6 +15,7 @@ body {
     background: rgba(54, 0, 18, 0.2);
     border-radius: 12px;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 #displayContainer {
@@ -116,4 +117,14 @@ body {
 
 #numberContainer span {
     background: rgb(94, 0, 23);
+}
+
+#plug span {
+  font-size:smaller;
+  color: darkgray
+}
+
+a:link {
+  text-decoration: none;
+  /*color not changing here for some reason...find color in html*/
 }
