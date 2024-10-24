@@ -6,13 +6,13 @@ body {
     align-items: center;
     height: 100%;
     width: 100%;
-    background: rgb(140, 132, 132);
+    background: rgb(132, 133, 140);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 5px;
 }
 
 #calcContainer {
-    background: rgba(54, 0, 18, 0.2);
+    background: rgba(0, 1, 54, 0.2);
     border-radius: 12px;
     padding: 10px;
     margin-bottom: 10px;
@@ -23,7 +23,7 @@ body {
     text-align: right;
     min-height: 99px;
     margin-bottom: 5px;
-    background: rgba(79, 0, 26, 0.146);
+    background: rgba(9, 0, 79, 0.146);
 
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .pushable {
-    background: hsl(340, 100%, 28%);
+    background: #043e39;
     border-radius: 12px;
     border: none;
     padding: 0;
@@ -62,7 +62,7 @@ body {
     padding: 10px;
     border-radius: 12px;
     font-size: 80px;
-    background: hsl(345, 100%, 42%);
+    background: #069087;
     color: white;
     transform: translateY(-4px);
     height: 90px;
@@ -113,11 +113,11 @@ body {
 }
 
 #numberContainer button {
-    background: rgb(42, 0, 14);
+    background: #000f0e;
 }
 
 #numberContainer span {
-    background: rgb(94, 0, 23);
+    background: #013937;
 }
 
 #plug span {
