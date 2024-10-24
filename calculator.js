@@ -110,7 +110,7 @@ btnOperator.addEventListener('click', function (e) {
 //keeps button pressed
   let currentOperator = document.querySelector(`#${e.target.id}`);
   currentOperator.style.transform = "translateY(-2px)";
-  currentOperator.style.background = "#B0002C"
+  currentOperator.style.background = "#043e39"
   currentOperatorGlobal = currentOperator;
   
 })
